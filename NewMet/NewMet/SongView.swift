@@ -27,6 +27,10 @@ struct SongView: View {
                  Image(systemName: "tag.circle")
             }
         }
+        //piece/playback info
+//                Button(action: {}) {
+//                    Text("Playback details")
+//                }.buttonStyle(NeumorphicButtonStyle(bgColor: .gray))
 
     }
 }

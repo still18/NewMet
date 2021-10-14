@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6031ADFA27171D8400896801 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6031ADF927171D8400896801 /* SongView.swift */; };
+		6031AE072717E05300896801 /* MetronomeHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6031AE062717E05300896801 /* MetronomeHandler.swift */; };
 		60922816270F4AEE00D51B48 /* NewMetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60922815270F4AEE00D51B48 /* NewMetApp.swift */; };
 		60922818270F4AEE00D51B48 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60922817270F4AEE00D51B48 /* ContentView.swift */; };
 		6092281A270F4AEF00D51B48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60922819270F4AEF00D51B48 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		6031ADF927171D8400896801 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+		6031AE062717E05300896801 /* MetronomeHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetronomeHandler.swift; sourceTree = "<group>"; };
 		60922812270F4AEE00D51B48 /* NewMet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewMet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60922815270F4AEE00D51B48 /* NewMetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMetApp.swift; sourceTree = "<group>"; };
 		60922817270F4AEE00D51B48 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				60922815270F4AEE00D51B48 /* NewMetApp.swift */,
 				60922817270F4AEE00D51B48 /* ContentView.swift */,
+				6031AE062717E05300896801 /* MetronomeHandler.swift */,
 				60922846270F4D7500D51B48 /* MainUIView.swift */,
 				6031ADF927171D8400896801 /* SongView.swift */,
 				6092285B270F503D00D51B48 /* SettingsView.swift */,
@@ -273,6 +276,7 @@
 				6031ADFA27171D8400896801 /* SongView.swift in Sources */,
 				60922816270F4AEE00D51B48 /* NewMetApp.swift in Sources */,
 				60922847270F4D7500D51B48 /* MainUIView.swift in Sources */,
+				6031AE072717E05300896801 /* MetronomeHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
