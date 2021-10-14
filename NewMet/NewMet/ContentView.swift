@@ -39,9 +39,10 @@ struct ContentView: View {
             HStack() {
                 //sound control
                 VStack() {
-                    Text("Sound")
+                    Text("Sound selection")
                     //drop down menu?
-                    Rectangle().fill(Color.init(.blue)).frame(width: 95, height: 30)
+                    //Rectangle().fill(Color.init(.blue)).frame(width: 95, height: 30)
+                    DropDown(initialText: "Choose sound")
                 }
                 Spacer().frame(width: 50)
                 //accent control
@@ -72,7 +73,8 @@ struct ContentView: View {
                 VStack() {
                     Text("Countoff")
                     //drop down menu?
-                    Rectangle().fill(Color.init(.blue)).frame(width: 95, height: 30)
+                    //Rectangle().fill(Color.init(.blue)).frame(width: 95, height: 30)
+                    DropDown(initialText: "Number of counts")
                     Spacer().frame(height: 10)
                     Image(systemName: "play.fill").resizable().frame(width: 60, height: 60)
                 }
@@ -99,6 +101,23 @@ struct NeumorphicButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 0.95: 1)
             .foregroundColor(.primary)
             .animation(.spring())
+    }
+}
+
+struct DropDown: View {
+    var initialText: String
+    @State var expanded = false
+    var body: some View {
+        VStack() {
+            VStack(spacing: 30) {
+                HStack() {
+                    Text(initialText).fontWeight(.bold).foregroundColor(.black)
+                    Image(systemName: expanded ? "chevron.up": "chevron.down").resizable().frame(width: 13, height: 6).foregroundColor(.black)
+                }.onTapGesture {
+                    self.expanded.toggle()
+                }
+            }
+        }
     }
 }
 

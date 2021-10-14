@@ -16,6 +16,11 @@ struct MainUIView: View {
                 Text("Metronome")
             }
             
+            SongView().tabItem {
+                Image(systemName: "music.note.list")
+                Text("Presets")
+            }
+            
             SettingsView().tabItem {
                 Image(systemName: "gear")
                 Text("Settings")
