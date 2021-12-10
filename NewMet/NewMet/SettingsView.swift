@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SettingsView: View {
     var body: some View {
-        Text("This is the settings page")
+        VStack() {
+            Text("This is the settings page")
+            Text("Sound selection")
+            //drop down menu?
+            //Rectangle().fill(Color.init(.blue)).frame(width: 95, height: 30)
+            DropDown(initialText: "Choose sound")
+        }
     }
 }
 

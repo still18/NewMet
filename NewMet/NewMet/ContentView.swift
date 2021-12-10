@@ -7,6 +7,7 @@
 
 //Metronome/main page
 import SwiftUI
+import Combine
 
 struct ContentView: View {
     
@@ -14,14 +15,41 @@ struct ContentView: View {
     @State var but1Status: Bool = false
     @State var but2Status: Bool = false
     
+    @State var displayCount : String = "1"
+    
+    @ObservedObject var metro2: Metronome = Metronome()
+    //var Metro2 = BPMTimer(bpm: 110)
+    
+    
     var c: Color = .black;
     
     var body: some View {
         VStack() {
             //title
-            Text("New Metronome")
+            Text("New Metronome").font(.largeTitle)
                 .padding()
-            Spacer().frame(height: 45)
+            VStack() {
+                Spacer().frame(height: 45)
+                Slider(value: $metro2.sliderPercent).frame(width: 300)
+                Spacer().frame(height: 15)
+                Text("BPM = \(metro2.beatsPerMinute)")
+                Spacer().frame(height: 35)
+            }
+            
+//            NavigationView {
+//                    VStack {
+//                        Text("Hello World")
+//                        NavigationLink(destination: CreationView()) {
+//                            Text("Hit Me!")
+//                                .fontWeight(.semibold)
+//                                .font(.title)
+//                                .padding()
+//                                .foregroundColor(.white)
+//                                .background(LinearGradient(gradient: Gradient(colors: [Color(.white),Color(.blue)]), startPoint: .leading, endPoint: .trailing))
+//                                .cornerRadius(40)
+//                    }
+//                }
+//            }
             
             HStack() {
                 //speed/division modifiers
@@ -84,13 +112,19 @@ struct ContentView: View {
                 Text("Accents")
                 //buttons
                 HStack() {
-                    Button(action: {}) {
+                    Button(action: {
+                        //metro.stopTimer()
+                    }) {
                         Text("1")
                     }.buttonStyle(NeumorphicButtonStyle(bgColor: .purple))
-                    Button(action: {}) {
+                    Button(action: {
+                        //metro.restartTimer()
+                    }) {
                         Text("2")
                     }.buttonStyle(NeumorphicButtonStyle(bgColor: .purple))
-                    Button(action: {}) {
+                    Button(action: {
+                        //methods here
+                    }) {
                         Text("3")
                     }.buttonStyle(NeumorphicButtonStyle(bgColor: .purple))
                 }
@@ -99,22 +133,33 @@ struct ContentView: View {
             Spacer().frame(height: 50)
             
             HStack() {
+                Spacer().frame(width: 10)
                 //song progression
-                Rectangle().fill(c).frame(width: 150, height: 250)
-                Spacer().frame(width: 40)
+                //Text(displayCount).foregroundColor(.white).font(.largeTitle).background(Rectangle().fill(c).frame(width: 150, height: 250))
+                RoundedRectangle(cornerRadius: 5).fill(Color.black).overlay(VStack() {
+                    Text("\(String(metro2.quarterBeat.current + 1))").foregroundColor(.white).font(.subheadline)
+                    Text("\(String(metro2.eigthBeat.current + 1))").foregroundColor(.white).font(.largeTitle)
+                    Text("\(String(metro2.sixteenthBeat.current + 1))").foregroundColor(.white).font(.subheadline)
+                }).frame(width: 130, height: 190)
+                Spacer().frame(width: 70)
                 //countoff/play
                 VStack() {
-                    Text("Countoff")
-                    //drop down menu?
-                    //Rectangle().fill(Color.init(.blue)).frame(width: 95, height: 30)
-                    DropDown(initialText: "Number of counts")
-                    Spacer().frame(height: 25)
+                    //Countoff details MOVE TO SMARTMET
+                    //Text("Countoff")
+                    //DropDown(initialText: "Number of counts")
+                    Spacer().frame(height: 5)
                     //Image(systemName: "play.fill").resizable().frame(width: 60, height: 60)
                     Button(action: {
                         if (playing) {
                             print("Stopping playback")
+                            //self.displayCount = "3"
+                            metro2.stopTimer()
+                            //Metro2.stop()
                         } else {
                             print("Starting playback!")
+                            //self.displayCount = "2"
+                            metro2.restartTimer()
+                            //Metro2.start()
                         }
                         playing = !playing
                         //print("Swapped states")
@@ -123,8 +168,12 @@ struct ContentView: View {
                     }
                 }
             }
-        }
+        }.onAppear()
     }
+}
+
+func setup() {
+    print("Setup complete lol")
 }
 
 //Button styling
