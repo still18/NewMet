@@ -11,7 +11,7 @@ import SwiftUI
 struct NewMetApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainUIView()
         }
     }
 }
